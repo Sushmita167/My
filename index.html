@@ -1,39 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Get Well Soon Avi</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(to bottom, #fff5f7, #ffe6eb);
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #d63384;
-            font-size: 2.5rem;
-        }
-        p {
-            font-size: 1.4rem;
-            color: #555;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Well Soon Avi</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#fff0f5,#ffe4e1);
+    font-family:Arial,sans-serif;
+}
+
+.card{
+    text-align:center;
+    background:rgba(255,255,255,0.9);
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.15);
+    z-index:10;
+}
+
+h1{
+    color:#d63384;
+    font-size:3em;
+    margin-bottom:10px;
+}
+
+p{
+    font-size:1.5em;
+    color:#555;
+}
+
+.floating{
+    position:absolute;
+    font-size:2rem;
+    animation:float 10s linear infinite;
+    opacity:0.8;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh) rotate(0deg);
+    }
+    to{
+        transform:translateY(-120px) rotate(360deg);
+    }
+}
+</style>
 </head>
+
 <body>
-    <div class="card">
-        <h1>Get Well Soon Avi 🌹🌹</h1>
-        <p>I miss you ♥️♥️</p>
-    </div>
+
+<div class="card">
+    <h1>Get Well Soon Avi 🌹🌹</h1>
+    <p>I miss you ♥️♥️</p>
+</div>
+
+<script>
+const symbols = ["🌹","🌹","♥️","💖","🌹","❤️"];
+
+for(let i=0;i<25;i++){
+    let el=document.createElement("div");
+    el.className="floating";
+    el.innerHTML=symbols[Math.floor(Math.random()*symbols.length)];
+    el.style.left=Math.random()*100+"vw";
+    el.style.animationDuration=(6+Math.random()*8)+"s";
+    el.style.fontSize=(20+Math.random()*30)+"px";
+    el.style.animationDelay=Math.random()*5+"s";
+    document.body.appendChild(el);
+}
+</script>
+
 </body>
 </html>
